@@ -12,7 +12,7 @@ class Queue {
     enqueue(val) {
         // Add node to end of queue (linked list)
         let newNode = new SinglyLinkedNode(val);
-        if (!this.head && !this.tail) {
+        if (this.length <= 0) {
             this.head = newNode;
             this.tail = this.head;
         } else {
@@ -20,33 +20,33 @@ class Queue {
             this.tail = newNode;
         }
 
-        return ++this.length;
+        this.length++;
+        return this.length;
+
         // Write your hypothesis on the time complexity of this method here
+        // works in O(1) time;
     }
 
     dequeue() {
         // Remove node from front of queue (linked list)
-        if (!this.head) return null;
-        const head = this.head;
-        this.length--;
-        if (this.length === 0) {
+        if (this.length <= 0) return null;
+        let dequeued = this.head;
+        if (this.length === 1) {
             this.head = null;
             this.tail = this.head;
         } else {
             this.head = this.head.next;
         }
-        return head.value;
+
+        this.length--;
+        return dequeued.value;
+
         // Write your hypothesis on the time complexity of this method here
+        // works in O(1) time
     }
 
 }
 
-const queue = new Queue();
-queue.enqueue('A');
-queue.enqueue('B');
-// queue.enqueue('C');
-console.log(queue.head.next.value);
-// console.log(queue)
 module.exports = {
     Queue,
     SinglyLinkedNode
