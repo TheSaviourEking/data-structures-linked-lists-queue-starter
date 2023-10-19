@@ -1,6 +1,6 @@
 let { SinglyLinkedList, DoublyLinkedList } = require('./linked-list-queue-practice.js');
 
-let iteration = 100000;
+let iteration = 10000;
 let runs = 10;
 
 let sll = new SinglyLinkedList();
