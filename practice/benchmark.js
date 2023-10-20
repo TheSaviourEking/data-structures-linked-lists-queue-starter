@@ -6,7 +6,7 @@ let runs = 10;
 let sll = new SinglyLinkedList();
 const dll = new DoublyLinkedList();
 
-function runTest(testFunc, list, runs) {
+function runTest(testFunc, name, list, runs) {
     let totalTime = 0;
     for (let j = 0; j < runs; j++) {
         let startTime = performance.now();
@@ -16,14 +16,14 @@ function runTest(testFunc, list, runs) {
         let endTime = performance.now();
         totalTime += endTime - startTime;
     }
-    console.log(testFunc.name + ':', totalTime / runs, 'ms');
+    console.log(name + '.' + testFunc.name + ':', totalTime / runs, 'ms');
 }
 
-runTest(sll.addToTail, sll, runs);
-runTest(dll.addToTail, dll, runs);
-runTest(sll.findMid, sll, runs);
-runTest(dll.findMid, dll, runs);
-runTest(sll.reverse, sll, runs);
-runTest(dll.reverse, dll, runs);
-runTest(sll.reverseInPlace, sll, runs);
-runTest(dll.reverseInPlace, dll, runs);
+runTest(sll.addToTail, 'sll', sll, runs);
+runTest(dll.addToTail, 'dll', dll, runs);
+runTest(sll.findMid, 'sll', sll, runs);
+runTest(dll.findMid, 'dll', dll, runs);
+runTest(sll.reverse, 'sll', sll, runs);
+runTest(dll.reverse, 'dll', dll, runs);
+runTest(sll.reverseInPlace, 'sll', sll, runs);
+runTest(dll.reverseInPlace, 'dll', dll, runs);
